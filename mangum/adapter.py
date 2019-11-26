@@ -14,7 +14,7 @@ from mangum.exceptions import ASGIWebSocketCycleException
 from mangum.connections import ConnectionTable, __ERR__
 
 
-def get_server_and_client(event: dict) -> typing.Tuple:  # pragma: no cover
+def get_server_and_client(event: typing.Dict) -> typing.Tuple:  # pragma: no cover
     """
     Parse the server and client for the scope definition, if possible.
     """
