@@ -14,7 +14,7 @@ from mangum.exceptions import ASGIWebSocketCycleException
 from mangum.connections import ConnectionTable, __ERR__
 
 
-def get_server_and_client(event: typing.Dict) -> typing.Tuple:  # pragma: no cover
+def get_server_and_client(event: typing.Dict) -> typing.Tuple:
     """
     Parse the server and client for the scope definition, if possible.
     """
@@ -74,7 +74,7 @@ class Mangum:
 
     def handle_http(self, event: dict, context: dict) -> dict:
         server, client = get_server_and_client(event)
-        headers = event.get("headers", {})
+        headers = event.get("headers") or {}
         headers_key_value_pairs = [
             [k.lower().encode(), v.encode()] for k, v in headers.items()
         ]
